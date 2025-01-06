@@ -11,7 +11,7 @@ const SEED: u64 = 6364136223846793005;
 
 /// An helper struct to carry a seed to HashMaps and HashSets.
 #[derive(Copy, Clone, Debug)]
-pub(crate) struct SeededRandomState {
+pub struct SeededRandomState {
     seed: u64,
 }
 
@@ -31,7 +31,7 @@ impl BuildHasher for SeededRandomState {
 }
 
 /// An `HashMap` with a defined seed.
-pub(crate) type SeededHashMap<K, V> = std::collections::HashMap<K, V, SeededRandomState>;
+pub type SeededHashMap<K, V> = std::collections::HashMap<K, V, SeededRandomState>;
 /// An `HashSet` with a defined seed.
 #[cfg(feature = "graphviz")]
 pub(crate) type SeededHashSet<V> = std::collections::HashSet<V, SeededRandomState>;

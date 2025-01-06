@@ -6,6 +6,8 @@
 use std::collections::HashMap;
 
 use npc_engine_core::TaskDuration;
+use npc_engine_core::util::SeededHashMap;
+use npc_engine_core::util::SeededRandomState;
 
 use crate::map::{Location, Map};
 
@@ -25,7 +27,7 @@ lazy_static! {
         let capture_locations = [
             0, 2, 6
         ];
-        let mut links = HashMap::<Location, HashMap<Location, u64>>::new();
+        let mut links = SeededHashMap::<Location, SeededHashMap<Location, u64>>::with_hasher(SeededRandomState::default());
         for (start, end, length) in links_data {
             let start = Location::new(start);
             let end = Location::new(end);

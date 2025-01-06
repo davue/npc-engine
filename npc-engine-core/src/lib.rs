@@ -38,7 +38,7 @@ mod mcts;
 mod node;
 mod state_diff;
 mod task;
-mod util;
+pub mod util;
 
 pub use active_task::*;
 pub use behavior::*;

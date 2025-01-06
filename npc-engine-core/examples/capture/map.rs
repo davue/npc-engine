@@ -3,7 +3,7 @@
  *  © 2020-2022 ETH Zurich and other contributors, see AUTHORS.txt for details
  */
 
-use std::collections::HashMap;
+use npc_engine_core::util::SeededHashMap;
 
 use nonmax::NonMaxU8;
 
@@ -19,7 +19,7 @@ impl Location {
 }
 
 pub struct Map {
-    pub links: HashMap<Location, HashMap<Location, u64>>,
+    pub links: SeededHashMap<Location, SeededHashMap<Location, u64>>,
     pub capture_locations: Vec<Location>,
 }
 impl Map {
